@@ -17,6 +17,7 @@ export default function Navbar() {
             Learning paths
           </Link>
           <Link href="/resources">Resources</Link>
+          <Link href="/projects">Projects</Link>
         </div>
 
         <Link

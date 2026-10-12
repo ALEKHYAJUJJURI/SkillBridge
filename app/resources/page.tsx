@@ -1,7 +1,6 @@
 
 import Link from "next/link";
-import { resources } from "../lib/resources";
-
+import ResourcesExplorer from "./ResourcesExplorer";
 
 export default function ResourcesPage() {
   return (
@@ -23,39 +22,7 @@ export default function ResourcesPage() {
           in your career roadmap.
         </p>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {resources.map((resource) => (
-            <article
-              key={resource.id}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-            >
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                {resource.type}
-              </span>
-
-              <h2 className="mt-5 text-xl font-bold">
-                {resource.title}
-              </h2>
-
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {resource.description}
-              </p>
-
-              <p className="mt-4 text-sm font-medium text-slate-500">
-                Skill: {resource.skill}
-              </p>
-
-              <a
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex font-semibold text-indigo-600 hover:underline"
-              >
-                Start learning ↗
-              </a>
-            </article>
-          ))}
-        </div>
+        <ResourcesExplorer />
       </div>
     </main>
   );
