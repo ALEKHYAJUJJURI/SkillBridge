@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useState, type SyntheticEvent } from "react";
-
+import { useRouter } from "next/navigation";
 type LoginResponse = {
   message?: string;
   user?: {
@@ -20,7 +20,7 @@ export default function LoginPage() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
+const router = useRouter()
   async function handleSubmit(
     event: SyntheticEvent<HTMLFormElement>
   ) {
@@ -47,8 +47,10 @@ export default function LoginPage() {
       }
 
       setIsSuccess(true);
-      setMessage("Credentials verified successfully.");
-
+      // setMessage("Credentials verified successfully.");
+ router.replace("/dashboard");
+  router.refresh();
+  return;
       // Session handling and dashboard navigation
       // will be added after secure authentication is implemented.
     } catch {
